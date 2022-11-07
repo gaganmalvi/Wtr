@@ -14,21 +14,21 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: #59a6ff;
+    background-color: #1f1f1f9d;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
     font-size: 20px;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 700;
-    color: #fff;
+    color: #ff6961;
 }
 
 .navbar {
     display: flex;
     justify-content: center;
-    background-color: #ff3838e3;
+    background-color: #ff6961;
     padding-top: 5px;
     padding-bottom: 5px;
     margin-left: 20px;
@@ -53,6 +53,20 @@ a:hover {
 
 .weather {
     display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+    padding: 30px;
+    margin: 20px;
+    font-size: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #fff;
+    height: 72vh;
+}
+
+.about {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -60,7 +74,24 @@ a:hover {
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
+    font-size: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #fff;
+    height: 74.5vh;
+}
+
+.weather-map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000009a;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.151);
     font-size: 20px;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 700;
@@ -71,4 +102,50 @@ a:hover {
 .wmap {
     border: 0;
     border-radius: 5px;
+}
+
+.temp {
+    font-size: 64px;
+    font-weight: 700;
+    margin-top: -5px;
+    margin-bottom: -10px;
+}
+
+.city {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: -5px;
+}
+
+.desc { 
+    font-size: 20px;
+    font-weight: 300;
+}
+
+table {
+    font-weight: 300;
+    width: 70%;
+}
+
+.weather-icon {
+    margin-left: -15px;
+    height: 100px;
+    width: max-content;
+}
+
+.dummy {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.weatherup {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+body {
+    background-image: url(../../public/img/background.jpg);
 }

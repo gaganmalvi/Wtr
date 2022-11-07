@@ -19,6 +19,13 @@
     <head>
         <title>wtr.</title>
         <link rel="stylesheet" href="src/css/main.css">    
+        <link rel="icon" href="public/img/logo.png">
+        <script src="src/js/weather.js"></script>
+        <script>
+            window.onload = function() {
+                getTemperature();
+            }
+        </script>
     </head>
     <body>
         <div class="centrum">
@@ -30,8 +37,51 @@
             <a href="/weather/src/html/about.html">about</a>
             <a href="/weather/src/html/wmap.html">weather map</a>
         </div>
+        
         <div class="weather">
-
+            <div class="weatherup">
+                <img class="weather-icon" src="public/img/logo.png" alt="weather icon">
+                <p class="temp"></p>
+                <p class="city"></p>
+                <p class="desc"></p>
+                <table>
+                    <tr>
+                        <td>Wind Speeds</td>
+                        <td class="wind"></td>
+                    </tr>
+                    <tr>
+                        <td>Humidity</td>
+                        <td class="hum"></td>
+                    </tr>
+                    <tr>
+                        <td>Pressure</td>
+                        <td class="pres"></td>
+                    </tr>
+                    <tr>
+                        <td>Minimum Temperature</td>
+                        <td class="min"></td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Temperature</td>
+                        <td class="max"></td>
+                    </tr>
+                    <tr>
+                        <td>Visibility</td>
+                        <td class="vis"></td>
+                    </tr>
+                    <tr>
+                        <td>Sunrise</td>
+                        <td class="sunrise"></td>
+                    </tr>
+                    <tr>
+                        <td>Sunset</td>
+                        <td class="sunset"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dummy">
+                
+            </div>
         </div>
     </body>
 </html>
