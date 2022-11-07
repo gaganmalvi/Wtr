@@ -18,18 +18,18 @@
 <html>
     <head>
         <title>wtr.</title>
-        <link rel="stylesheet" href="assets/css/main.css">    
-        <link rel="icon" href="assets/img/logo.png">
-        <script src="assets/js/weather.js"></script>
+        <link rel="stylesheet" href="../css/main.css">    
+        <link rel="icon" href="../img/logo.png">
+        <script src="../js/weather.js"></script>
         <script>
             window.onload = function() {
-                getTemperature();
+                getAirPollution();
             }
         </script>
     </head>
     <body>
         <div class="centrum">
-            <img class="logo" src="assets/img/logo.png" alt="wtr. logo">
+            <img class="logo" src="../img/logo.png" alt="wtr. logo">
             wtr.
         </div>
         <div class="navbar">
@@ -37,52 +37,51 @@
             <a href="/assets/html/about.html">about</a>
             <a href="/assets/html/wmap.html">weather map</a>
             <a href="/assets/html/airpollution.html">air pollution</a>
-            <a class="resync" onclick="getTemperature()" href="#">resync</a>
+            <a class="resync" onclick="getAirPollution()" href="#">resync</a>
         </div>
-        
-        <div class="weather">
-            <div class="weatherup">
-                <img class="weather-icon" src="assets/img/logo.png" alt="weather icon">
-                <p class="temp"></p>
-                <p class="city"></p>
-                <p class="desc"></p>
-                <table class="main-table">
+        <div class="about">
+            <div class="airquality">
+                <p class="aq-title">Air Pollution Statistics</p>
+                <p class="aq-city"></p>
+                <p class="aq-date"></p>
+                <table class="aq-table">
                     <tr>
-                        <td>Wind Speeds</td>
-                        <td class="wind"></td>
+                        <td>Air Quality Index</td>
+                        <td class="aqi"></td>
                     </tr>
                     <tr>
-                        <td>Humidity</td>
-                        <td class="hum"></td>
+                        <td>PM2.5</td>
+                        <td class="pm2_5"></td>
                     </tr>
                     <tr>
-                        <td>Pressure</td>
-                        <td class="pres"></td>
+                        <td>PM10</td>
+                        <td class="pm10"></td>
                     </tr>
                     <tr>
-                        <td>Minimum Temperature</td>
-                        <td class="min"></td>
+                        <td>NO<sub>2</sub></td>
+                        <td class="no2"></td>
                     </tr>
                     <tr>
-                        <td>Maximum Temperature</td>
-                        <td class="max"></td>
+                        <td>NO</td>
+                        <td class="no"></td>
                     </tr>
                     <tr>
-                        <td>Visibility</td>
-                        <td class="vis"></td>
+                        <td>SO<sub>2</sub></td>
+                        <td class="so2"></td>
                     </tr>
                     <tr>
-                        <td>Sunrise</td>
-                        <td class="sunrise"></td>
+                        <td>NH<sub>3</sub></td>
+                        <td class="nh3"></td>
                     </tr>
                     <tr>
-                        <td>Sunset</td>
-                        <td class="sunset"></td>
+                        <td>O<sub>3</sub></td>
+                        <td class="o3"></td>
+                    </tr>
+                    <tr>
+                        <td>CO</td>
+                        <td class="co"></td>
                     </tr>
                 </table>
-            </div>
-            <div class="dummy">
-                
             </div>
         </div>
     </body>

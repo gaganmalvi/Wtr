@@ -38,10 +38,43 @@ function getTemperature() {
                 document.querySelector('.pres').innerText = `${output.main.pressure} hPa`;
                 document.querySelector('.min').innerText = `${output.main.temp_min} C`;
                 document.querySelector('.max').innerText = `${output.main.temp_max} C`;
-                document.querySelector('.vis').innerText = `${output.visibility} m`;
+                if (output.visibility > 1000) {
+                    document.querySelector('.vis').innerText = `${output.visibility/1000} km`;
+                } else {
+                    document.querySelector('.vis').innerText = `${output.visibility} m`;
+                }
                 document.querySelector('.sunrise').innerText = `${timeConverter(output.sys.sunrise)}`;
                 document.querySelector('.sunset').innerText = `${timeConverter(output.sys.sunset)}`;
             });
+        });
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function getAirPollution() {
+    document.querySelector('.airquality').style.display = "none";
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            fetch(`${api.base}air_pollution?lat=${lat}&lon=${lon}&APPID=${api.key}`)
+             .then(weather => weather.json()).then((output) => {
+                document.querySelector('.airquality').style.display = "flex";
+                console.log(output);
+                document.querySelector('.aqi').innerText = `${output.list[0].main.aqi}`;
+                document.querySelector('.pm2_5').innerText = `${output.list[0].components.pm2_5}`;
+                document.querySelector('.pm10').innerText = `${output.list[0].components.pm10}`;
+                document.querySelector('.no2').innerText = `${output.list[0].components.no2}`;
+                document.querySelector('.so2').innerText = `${output.list[0].components.so2}`;
+                document.querySelector('.co').innerText = `${output.list[0].components.co}`;
+                document.querySelector('.o3').innerText = `${output.list[0].components.o3}`;
+                document.querySelector('.aq-date').innerText = `Pulled at: ${timeConverter(output.list[0].dt)}`;
+            });
+            fetch(`${api.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`)
+             .then(weather => weather.json()).then((output) => {
+                document.querySelector('.aq-city').innerText = `${output.name}, ${output.sys.country}`;
+             });
         });
     } else {
         alert("Geolocation is not supported by this browser.");

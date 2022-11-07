@@ -47,6 +47,10 @@ a {
     border-radius: 10px;
 }
 
+a + a {
+    margin-left: 10px;
+}
+
 a:hover {
     background-color: rgba(255, 255, 255, 0.356);
 }
@@ -122,9 +126,10 @@ a:hover {
     font-weight: 300;
 }
 
-table {
+.main-table {
     font-weight: 300;
-    width: 70%;
+    width: 60%;
+    text-align: left;
 }
 
 .weather-icon {
@@ -144,6 +149,41 @@ table {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
+}
+
+.airquality {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+}
+
+.aq-city {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: -10px;
+}
+
+.aq-title {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: -10px;
+}
+
+.aq-date {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.aq-table {
+    font-weight: 300;
+    width: 60%;
+    text-align: center;
+}
+
+.resync {
+    background-color: rgba(56, 56, 56, 0.829);
 }
 
 body {
