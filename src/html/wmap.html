@@ -18,11 +18,11 @@
 <html>
     <head>
         <title>wtr.</title>
-        <link rel="stylesheet" href="src/css/main.css">    
+        <link rel="stylesheet" href="../css/main.css">    
     </head>
     <body>
         <div class="centrum">
-            <img class="logo" src="public/img/logo.png" alt="wtr. logo">
+            <img class="logo" src="../../public/img/logo.png" alt="wtr. logo">
             wtr.
         </div>
         <div class="navbar">
@@ -31,7 +31,13 @@
             <a href="/weather/src/html/wmap.html">weather map</a>
         </div>
         <div class="weather">
-
+            <iframe
+            src="https://embed.windy.com/embed2.html?lat=0.000&lon=68.203&detailLat=15.623&detailLon=68.203&width=650&height=450&zoom=3&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=true&calendar=now&pressure=true&type=map&location=coordinates&detail=true&metricWind=default&metricTemp=default&radarRange=-1"
+            height="700px"
+            width="100%"
+            class="wmap"
+            title="Windy"
+            ></iframe>
         </div>
     </body>
 </html>

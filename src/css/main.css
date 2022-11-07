@@ -1,0 +1,74 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+    padding-right: 10px;
+}
+
+.centrum {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #59a6ff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    font-size: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #ff3838e3;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+a:hover {
+    background-color: rgba(255, 255, 255, 0.356);
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000009a;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    font-size: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #fff;
+    height: 74.5vh;
+}
+
+.wmap {
+    border: 0;
+    border-radius: 5px;
+}
