@@ -3,7 +3,7 @@
 
 const api = {
     key: "cd3c097765ba92903ec783b6cf5bef86",
-    base: "https://api.openweathermap.org/data/2.5/"
+    base: "https://api.openweathermap.org"
 }
 
 function timeConverter(UNIX_timestamp){
@@ -25,7 +25,7 @@ function getTemperature() {
         navigator.geolocation.getCurrentPosition(position => {
             let lat = position.coords.latitude;
             let lon = position.coords.longitude;
-            fetch(`${api.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`)
+            fetch(`${api.base}/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`)
              .then(weather => weather.json()).then((output) => {
                 document.querySelector('.weatherup').style.display = "flex";
                 console.log(output);
@@ -58,7 +58,7 @@ function getAirPollution() {
         navigator.geolocation.getCurrentPosition(position => {
             let lat = position.coords.latitude;
             let lon = position.coords.longitude;
-            fetch(`${api.base}air_pollution?lat=${lat}&lon=${lon}&APPID=${api.key}`)
+            fetch(`${api.base}/data/2.5/air_pollution?lat=${lat}&lon=${lon}&APPID=${api.key}`)
              .then(weather => weather.json()).then((output) => {
                 document.querySelector('.airquality').style.display = "flex";
                 console.log(output);
@@ -71,7 +71,7 @@ function getAirPollution() {
                 document.querySelector('.o3').innerText = `${output.list[0].components.o3}`;
                 document.querySelector('.aq-date').innerText = `Pulled at: ${timeConverter(output.list[0].dt)}`;
             });
-            fetch(`${api.base}weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`)
+            fetch(`${api.base}/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&APPID=${api.key}`)
              .then(weather => weather.json()).then((output) => {
                 document.querySelector('.aq-city').innerText = `${output.name}, ${output.sys.country}`;
              });
@@ -79,4 +79,19 @@ function getAirPollution() {
     } else {
         alert("Geolocation is not supported by this browser.");
     }
+}
+
+function getLatitudeAndLongitude(city, country) {
+    fetch(`${api.base}/geo/1.0/direct?q=${city}&limit=10&appid=${api.key}`)
+        .then(data => data.json()).then((output) => {
+            for (let i = 0; i < output.length; i++) {
+                if (output[i].country === country) {
+                    console.log(output[i]);
+                    return output[i].lat, output[i].lon;
+                    break;
+                } else {
+                    console.log("No such city found.");
+                }
+            }
+        });
 }
