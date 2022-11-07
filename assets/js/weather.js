@@ -104,6 +104,7 @@ function getWeatherByCity() {
                 }
                 document.querySelector('.sunrise').innerText = `${timeConverter(output.sys.sunrise)}`;
                 document.querySelector('.sunset').innerText = `${timeConverter(output.sys.sunset)}`;
+                document.getElementById('citydata').value = "";
             })
             .catch(err => {
                 alert("Wrong city name!")
