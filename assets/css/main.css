@@ -138,6 +138,36 @@ a:hover {
     width: max-content;
 }
 
+button {
+    background-color: #ff6961;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 10px;
+    border: 0;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.citydata {
+    padding: 10px;
+    border-radius: 25px;
+    background-color: #00000000;
+    border: 0;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.citydata:focus {
+    outline: #fff;
+    outline-width: 2px;
+}
+
 .dummy {
     width: 50%;
     display: flex;

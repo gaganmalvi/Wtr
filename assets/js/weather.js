@@ -81,17 +81,32 @@ function getAirPollution() {
     }
 }
 
-function getLatitudeAndLongitude(city, country) {
-    fetch(`${api.base}/geo/1.0/direct?q=${city}&limit=10&appid=${api.key}`)
-        .then(data => data.json()).then((output) => {
-            for (let i = 0; i < output.length; i++) {
-                if (output[i].country === country) {
-                    console.log(output[i]);
-                    return output[i].lat, output[i].lon;
-                    break;
+function getWeatherByCity() {
+    let city = document.getElementById('citydata').value;
+    document.querySelector('.weatherup').style.display = "none";
+    fetch(`${api.base}/data/2.5/weather?q=${city}&units=metric&APPID=${api.key}`)
+             .then(weather => weather.json()).then((output) => {
+                document.querySelector('.weatherup').style.display = "flex";
+                console.log(output);
+                document.querySelector('.weather-icon').src = `https://openweathermap.org/img/wn/${output.weather[0].icon}@2x.png`;
+                document.querySelector('.temp').innerText = `${output.main.temp}`;
+                document.querySelector('.city').innerText = `${output.name}, ${output.sys.country}`;
+                document.querySelector('.desc').innerText = `${output.weather[0].main}`;
+                document.querySelector('.wind').innerText = `${output.wind.speed} km/h`;
+                document.querySelector('.hum').innerText = `${output.main.humidity}%`;
+                document.querySelector('.pres').innerText = `${output.main.pressure} hPa`;
+                document.querySelector('.min').innerText = `${output.main.temp_min} C`;
+                document.querySelector('.max').innerText = `${output.main.temp_max} C`;
+                if (output.visibility > 1000) {
+                    document.querySelector('.vis').innerText = `${output.visibility/1000} km`;
                 } else {
-                    console.log("No such city found.");
+                    document.querySelector('.vis').innerText = `${output.visibility} m`;
                 }
-            }
-        });
+                document.querySelector('.sunrise').innerText = `${timeConverter(output.sys.sunrise)}`;
+                document.querySelector('.sunset').innerText = `${timeConverter(output.sys.sunset)}`;
+            })
+            .catch(err => {
+                alert("Wrong city name!")
+                document.getElementById('citydata').value = "";
+            });
 }
