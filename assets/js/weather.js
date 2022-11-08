@@ -77,7 +77,7 @@ function getAirPollution() {
              });
         });
     } else {
-        alert("Geolocation is not supported by this browser.");
+        alert("Geolocation is not enabled or supported by this browser. Please allow location access if asked for.");
     }
 }
 
